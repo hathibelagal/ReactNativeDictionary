@@ -1,21 +1,21 @@
 var React = require('react-native');
-var german_english = require('./german_english.json');
+var english_german = require('./english_german.json');
 
 var styles = React.StyleSheet.create({
 
-    // For the container View
+	// For the container View
     parent: {
         padding: 16
     },
 
-    // For the Text label
-    englishLabel: {
+	// For the Text label
+    germanLabel: {
         marginTop: 20,
         fontWeight: 'bold'
     },
 
-    // For the Text meaning
-    englishWord: {
+	// For the Text meaning
+    germanWord: {
         marginTop: 15,
         fontSize: 30,
         fontStyle: 'italic'
@@ -36,7 +36,7 @@ var Dictionary = React.createClass({
         <React.View style = { styles.parent } >
 
             <React.Text>
-                Type in a German word here:
+                Type something in English:
             </React.Text>
 
             <React.TextInput
@@ -45,28 +45,28 @@ var Dictionary = React.createClass({
                 onSubmitEditing = { this.showMeaning }
             />
 
-            <React.Text style = { styles.englishLabel } >
-                Its meaning in English is:
+            <React.Text style = { styles.germanLabel } >
+                Its German equivalent is:
             </React.Text>
 
-            <React.Text style = { styles.englishWord } >
+            <React.Text style = { styles.germanWord } >
                 { this.state.output }
             </React.Text>
           
         </React.View>
     ;
-    return layout;
+	return layout;
   },
 
-  showMeaning: function() {
-	var meaning = this.state.input in german_english ? 
-                german_english[this.state.input] : 
-                "Not Found";
+    showMeaning: function() {
+        var meaning = this.state.input in english_german ? 
+                        english_german[this.state.input] : 
+                        "Not Found";
 
-	this.setState({
-	     output: meaning 
-	});
-  },
+        this.setState({
+             output: meaning 
+        });
+    },
 });
 
 React.AppRegistry.registerComponent('Dictionary', () => Dictionary);
