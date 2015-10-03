@@ -3,18 +3,18 @@ var german_english = require('./german_english.json');
 
 var styles = React.StyleSheet.create({
 
-	// For the container View
+    // For the container View
     parent: {
         padding: 16
     },
 
-	// For the Text label
+    // For the Text label
     englishLabel: {
         marginTop: 20,
         fontWeight: 'bold'
     },
 
-	// For the Text meaning
+    // For the Text meaning
     englishWord: {
         marginTop: 15,
         fontSize: 30,
@@ -55,18 +55,18 @@ var Dictionary = React.createClass({
           
         </React.View>
     ;
-	return layout;
+    return layout;
   },
 
-    showMeaning: function() {
-        var meaning = this.state.input in german_english ? 
-                        german_english[this.state.input] : 
-                        "Not Found";
+  showMeaning: function() {
+	var meaning = this.state.input in german_english ? 
+                german_english[this.state.input] : 
+                "Not Found";
 
-        this.setState({
-             output: meaning 
-        });
-    },
+	this.setState({
+	     output: meaning 
+	});
+  },
 });
 
 React.AppRegistry.registerComponent('Dictionary', () => Dictionary);
